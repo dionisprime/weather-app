@@ -1,5 +1,5 @@
 const link =
-  'https://api.weatherstack.com/current?access_key=030625e71a106dda0b744b4c13d60241'
+  'http://api.weatherstack.com/current?access_key=030625e71a106dda0b744b4c13d60241'
 
 const root = document.getElementById('root')
 const popup = document.getElementById('popup')
@@ -24,7 +24,9 @@ let store = {
 const fetchData = async () => {
   try {
     const query = localStorage.getItem('query') || store.city
-    const result = await fetch(`${link}&query=${query}`)
+    const result = await fetch(`${link}&query=${query}`, {
+      referrerPolicy: 'unsafe_url',
+    })
     const data = await result.json()
 
     const {
