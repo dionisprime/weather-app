@@ -24,9 +24,7 @@ let store = {
 const fetchData = async () => {
   try {
     const query = localStorage.getItem('query') || store.city
-    const result = await fetch(`${link}&query=${query}`, {
-      referrerPolicy: 'unsafe_url',
-    })
+    const result = await fetch(`${link}&query=${query}`)
     const data = await result.json()
 
     const {
